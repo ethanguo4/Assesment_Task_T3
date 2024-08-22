@@ -19,10 +19,11 @@ def useCases():
     while True:
         print("\nChoose a dataset.")
         print("1. Original Data")
-        print("2. Genre Sales")
+        print("2. Total Sales")
         print("3. Game Sales over the Years")
-        print('4. Popular genres ')
-        print("5. Exit the UI? :(")
+        print('4. Games rankings')
+        print('5. Genre popularity')
+        print("6. Exit the UI? :(")
         
         choice = int(input("Please enter your choice, (1-5): "))
 
@@ -35,10 +36,12 @@ def useCases():
         elif choice == '4':
             three()
         elif choice == '5':
+            four()
+        elif choice == '6':
             print("Exiting... :(")
             break
         else:
-            print("Try entering a number between 1-5.")
+            print("Try entering a number between 1-6.")
 
 
 #----Define Functions Below----#
@@ -53,9 +56,9 @@ def originaldata():
 
 def one():
     a = gamedf2['Total Sales'].sum()
-    print(f"Total amount of sales made by games is {x} people")
+    print(f"Total amount of sales made by games is {a} people")
 
-def two():
+def columns():
     column = input('Choose a colum: ')
     if column in gamedf2.columns:
         result = gamedf2[column]
@@ -63,21 +66,42 @@ def two():
     else:
        print(f"Column {column} isn't in the dataframe :/")
 
-def three():
+def two():
     gamedf2.plot( 
     kind='bar',
-    x='Genre',
-    y='Total Sales',
+    x='genre',
+    y='total_sales',
     colour='blue',
     alpha=0.3,
-    title='Total Sales in Genres')
+    title='Game Sales over the Years')
     plt.show()
 
+def three():
+    gamedf2.plot(
+    kind='bar',
+    x='title',
+    y='critic_score',
+    colour='blue',
+    alpha=0.3,
+    title='Games Rankings') 
+    plt.show()
+
+def four():
+    gamedf2.plt(
+      kind='bar',
+      x='genre',
+      y='critic_score',
+      colour='blue',
+      alpha=0.3,
+      title='Genre popularity')
+plt.show()
+    
+    
 
 
 
 
-print(cldb)
+print(gamedf2)
 
 def cleandata():
     global dataset
@@ -87,7 +111,3 @@ def cleandata():
     dataset = dataset.drop['jp_sales']
     dataset = dataset.drop['pal_sales']
     dataset = dataset.drop['last_update']
-
-n = dataset
-n = n.sort_values('release_date')
-n.to_csv
