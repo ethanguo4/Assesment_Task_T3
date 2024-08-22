@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 
 #----Global Variables----#
 quit = False
-gamedf = pd.read_csv('/Downloads/vgchartz-2024.csv', on_bad_lines='skip')
+gamedf = pd.read_csv('/Downloads/vgchartz-2024.csv')
 
 gamedf2 = pd.read_csv('/Downloads/vgchartz-2024.csv',
                    header=None,
-                   names=['Title', 'Genre', 'Critic', 'Date', 'Total Sales']
+                   names=['Title', 'Genre', 'Critic', 'Date', 'Total Sales'])
 
 def useCases():
     global quit
@@ -32,7 +32,7 @@ def useCases():
             one()
         elif choice == '3':
             two()
-        elif choice == '4'
+        elif choice == '4':
             three()
         elif choice == '5':
             print("Exiting... :(")
@@ -44,12 +44,12 @@ def useCases():
 #----Define Functions Below----#
 def originaldata():
         gamedf = pd.read_csv('vgchartz-2024.csv', on_bad_lines='warn', encoding='ISO-8859-1')
-        with pd.option_context('display.max_rows', None
-                               'display.max_colums', None,
-                               'display.width', None,
-                               'display.precision', 3,
-                               'display.colheader_justify', 'left'):
-                               print( gamedf ) 
+        with pd.option_context('display.max_rows', None,
+                        'display.max_colums', None,
+                        'display.width', None,
+                        'display.precision', 3,
+                        'display.colheader_justify', 'left'):
+            print( gamedf ) 
 
 def one():
     a = gamedf2['Total Sales'].sum()
@@ -57,24 +57,24 @@ def one():
 
 def two():
     column = input('Choose a colum: ')
-    if column in gamedf2.columns:
-        result = gamedf2[column]
-        print(result)
+    if  column in gamedf2.columns:
+         result = gamedf2[column]
+         print(result)
     else:
-    print(f"Column {column} isn't in the dataframe :/")
+         print(f"Column {column} isn't in the dataframe ")
 
 def three():
-gamedf2.plot( 
-    kind='bar',
-    x='Genre',
-    y='Total Sales',
-    colour='blue',
-    alpha=0.3,
-    title='Total Sales in Genres')
-    plt.show()
+     gamedf2.plot( 
+         kind='bar',
+         x='Genre',
+         y='Total Sales',
+         colour='blue',
+         alpha=0.3,
+         title='Total Sales in Genres')
+     plt.show()
 
 
-)
+
 
 
 print(cldb)
@@ -87,7 +87,3 @@ def cleandata():
     dataset = dataset.drop['jp_sales']
     dataset = dataset.drop['pal_sales']
     dataset = dataset.drop['last_update']
-
-n = dataset
-n = n.sort_values('release_date')
-n.to_csv
