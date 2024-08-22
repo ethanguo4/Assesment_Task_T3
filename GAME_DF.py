@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 
 #----Global Variables----#
 quit = False
-gamedf = pd.read_csv('/Downloads/vgchartz-2024.csv')
+gamedf = pd.read_csv('/ethanslaptopd/documents/vgchartz-2024.csv', on_bad_lines='skip')
 
-gamedf2 = pd.read_csv('/Downloads/vgchartz-2024.csv',
+gamedf2 = pd.read_csv('/ethanslaptopd/documents/vgchartz-2024.csv',
                    header=None,
                    names=['Title', 'Genre', 'Critic', 'Date', 'Total Sales'])
 
@@ -57,21 +57,21 @@ def one():
 
 def two():
     column = input('Choose a colum: ')
-    if  column in gamedf2.columns:
-         result = gamedf2[column]
-         print(result)
+    if column in gamedf2.columns:
+        result = gamedf2[column]
+        print(result)
     else:
-         print(f"Column {column} isn't in the dataframe ")
+       print(f"Column {column} isn't in the dataframe :/")
 
 def three():
-     gamedf2.plot( 
-         kind='bar',
-         x='Genre',
-         y='Total Sales',
-         colour='blue',
-         alpha=0.3,
-         title='Total Sales in Genres')
-     plt.show()
+    gamedf2.plot( 
+    kind='bar',
+    x='Genre',
+    y='Total Sales',
+    colour='blue',
+    alpha=0.3,
+    title='Total Sales in Genres')
+    plt.show()
 
 
 
@@ -87,3 +87,7 @@ def cleandata():
     dataset = dataset.drop['jp_sales']
     dataset = dataset.drop['pal_sales']
     dataset = dataset.drop['last_update']
+
+n = dataset
+n = n.sort_values('release_date')
+n.to_csv
