@@ -1,12 +1,11 @@
 #----Modules----#
 import pandas as pd
-import matplotlib.pyplot as plt1
+import matplotlib.pyplot as plt
 
 
 #----Global Variables----#
 quit = False
-
-dataset = pd.read_csv('vgchartz-2024.csv', on_bad_lines='skip')
+game_df = pd.read_csv('/Downloads/vgchartz-2024.csv', on_bad_lines='skip')
 
 def main():
     
@@ -37,28 +36,25 @@ if __name__ == "__main__":
 
 
 #----Define Functions Below----#
-def showchart():
-    global dataset
-    dataset.plot(
-        kind = 'bar',
-        x= 'genre',
-        y= 'total_sales',
-        color='blue',
-        alpha = 0.3,
-        title='Total Sales of Generes'
-    )
-    dataset.show()
+dataset.plot(
+               kind='scatter',
+               x='genre',
+               y='total_sales',
+               color='blue',
+               alpha=0.3,
+               title='Popularity of Genres'
+              )
+plt.show()
 
-def showchart():
-    dataset.plot(
-        kind='line',
-        x='Date',
-        y='Sales',
-        color='blue',
-        title='Total Sales of Generes',
-    )
-
-dataset.show()
+dataset.plot(
+               kind='scatter',
+               x='genre',
+               y='total_sales',
+               color='blue',
+               alpha=0.3,
+               title='Popularity of Genres'
+              )
+plt.show()
 
 def cleandata():
     global dataset
@@ -72,5 +68,3 @@ def cleandata():
 n = dataset
 n = n.sort_values('release_date')
 n.to_csv
-
-
