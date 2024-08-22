@@ -5,56 +5,79 @@ import matplotlib.pyplot as plt
 
 #----Global Variables----#
 quit = False
-game_df = pd.read_csv('/Downloads/vgchartz-2024.csv', on_bad_lines='skip')
+gamedf = pd.read_csv('/Downloads/vgchartz-2024.csv', on_bad_lines='skip')
 
-def main():
-    
+gamedf2 = pd.read_csv('/Downloads/vgchartz-2024.csv',
+                   header=None,
+                   names=['Title', 'Genre', 'Critic', 'Date', 'Total Sales']
+
+def useCases():
+    global quit
+
+    print("This UI will present data on game sales, release dates and genres. Please make a pick of which dataset you would like.")
+
     while True:
         print("\nChoose a dataset.")
-        print("1. Genre Sales")
-        print("2. Game Sales over the Years")
-        print("3. Popular genres ")
-        print("4. Exit")
+        print("1. Original Data")
+        print("2. Genre Sales")
+        print("3. Game Sales over the Years")
+        print('4. Popular genres ')
+        print("5. Exit the UI? :(")
         
-        choice = input("Please enter your choice, (1/2/3/4): ")
+        choice = int(input("Please enter your choice, (1-5): "))
 
         if choice == '1':
-            plot_Genre_Sales()
+            originaldata()
         elif choice == '2':
-            plot_Game_Sales_over_the_Years()
+            one()
         elif choice == '3':
-            plot_Popular_genres()
-        elif choice == '4':
-            print("Exiting...")
+            two()
+        elif choice == '4'
+            three()
+        elif choice == '5':
+            print("Exiting... :(")
             break
         else:
-            print("Invalid choice. Please select a valid option.")
-
-# Run the main function
-if __name__ == "__main__":
-    main()
+            print("Try entering a number between 1-5.")
 
 
 #----Define Functions Below----#
-dataset.plot(
-               kind='scatter',
-               x='genre',
-               y='total_sales',
-               color='blue',
-               alpha=0.3,
-               title='Popularity of Genres'
-              )
-plt.show()
+def originaldata():
+        gamedf = pd.read_csv('vgchartz-2024.csv', on_bad_lines='warn', encoding='ISO-8859-1')
+        with pd.option_context('display.max_rows', None
+                               'display.max_colums', None,
+                               'display.width', None,
+                               'display.precision', 3,
+                               'display.colheader_justify', 'left'):
+                               print( gamedf ) 
 
-dataset.plot(
-               kind='scatter',
-               x='genre',
-               y='total_sales',
-               color='blue',
-               alpha=0.3,
-               title='Popularity of Genres'
-              )
-plt.show()
+def one():
+    a = gamedf2['Total Sales'].sum()
+    print(f"Total amount of sales made by games is {x} people")
+
+def two():
+    column = input('Choose a colum: ')
+    if column in gamedf2.columns:
+        result = gamedf2[column]
+        print(result)
+    else:
+    print(f"Column {column} isn't in the dataframe :/")
+
+def three():
+gamedf2.plot( 
+    kind='bar',
+    x='Genre',
+    y='Total Sales',
+    colour='blue',
+    alpha=0.3,
+    title='Total Sales in Genres')
+    plt.show()
+
+
+)
+
+
+print(cldb)
 
 def cleandata():
     global dataset
