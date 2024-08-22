@@ -87,7 +87,7 @@ def three():
     plt.show()
 
 def four():
-    gamedf2.plt(
+    gamedf2.plot(
       kind='bar',
       x='genre',
       y='critic_score',
