@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 #----Global Variables----#
 quit = False
-gamedf = pd.read_csv('/data/vgchartz-2024.csv', on_bad_lines='skip')
+gamedf = pd.read_csv("/Users/ethanslaptop/Documents/data/vgchartz-2024.csv")
 
 gamedf2 = pd.read_csv('/data/vgchartz-2024.csv',
                    header=None,
@@ -97,10 +97,6 @@ def four():
 plt.show()
     
     
-
-
-
-
 print(gamedf2)
 
 def cleandata():
