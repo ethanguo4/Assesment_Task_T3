@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 quit = False
 gamedf = pd.read_csv("/Users/ethanslaptop/Documents/data/vgchartz-2024.csv")
 
-gamedf2 = pd.read_csv('/data/vgchartz-2024.csv',
+gamedf2 = pd.read_csv("/Users/ethanslaptop/Documents/data/vgchartz-2024.csv",
                    header=None,
                    names=['Title', 'Genre', 'Critic', 'Date', 'Total Sales'])
 
