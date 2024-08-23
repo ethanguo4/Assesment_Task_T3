@@ -8,25 +8,21 @@ file_path = 'data/vgchartz-2024.csv'
 #----Global Variables----#
 quit = False
 gamedf = pd.read_csv("data/vgchartz-2024.csv")
-gamedf2 = gamedf
-gamedf2 = gamedf2['title', 'genre', 'critic', 'date', 'total_sales']
+
+gamedf2 = gamedf[['title', 'genre', 'critic_score', 'release_date', 'total_sales']]
 #global quit
 quit = False
 
 #----Global Variables----#
 gamedf = pd.read_csv("data/vgchartz-2024.csv")
 
-gamedf2 = pd.read_csv("data/vgchartz-2024.csv",
-                   header=None,
-                   names=['Title', 'Genre', 'Critic', 'Date', 'Total Sales'])
 
 def useCases():
     global quit
 
     print("This UI will present data on game sales, release dates and genres. Please make a pick of which dataset you would like.")
 
-    while True:
-        print("\nChoose a dataset.")
+        print("Choose a dataset.")
         print("1. Original Data")
         print("2. Total Sales")
         print("3. Game Sales over the Years")
@@ -55,7 +51,7 @@ def useCases():
 
 #----Define Functions Below----#
 def originaldata():
-        gamedf = pd.read_csv("data/vgchartz-2024.csv", on_bad_lines='warn', encoding='ISO-8859-1')
+        gamedf = pd.read_csv("data/vgchartz-2024.csv", on_bad_lines='warn')
         with pd.option_context('display.max_rows', None,
                         'display.max_colums', None,
                         'display.width', None,
