@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 
 #----Global Variables----#
 quit = False
-gamedf = pd.read_csv('/ethanslaptopd/documents/vgchartz-2024.csv', on_bad_lines='skip')
+gamedf = pd.read_csv('/data/vgchartz-2024.csv', on_bad_lines='skip')
 
-gamedf2 = pd.read_csv('/ethanslaptopd/documents/vgchartz-2024.csv',
+gamedf2 = pd.read_csv('/data/vgchartz-2024.csv',
                    header=None,
                    names=['Title', 'Genre', 'Critic', 'Date', 'Total Sales'])
 
