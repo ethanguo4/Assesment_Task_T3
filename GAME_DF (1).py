@@ -72,7 +72,10 @@ def columns():
        print(f"Column {column} isn't in the dataframe :/")
 
 def two():
-    gamedf2.plot( 
+    filtered_df = gamedf2[gamedf2["title"].str.contains("X...X")]
+    filtered_df = gamedf2[gamedf2["critic_score"].str.contains("N.N")]
+
+    filtered_df.plot(
     kind='bar',
     x='genre',
     y='total_sales',
@@ -82,8 +85,8 @@ def two():
     plt.show()
 
 def three():
-    filtered_df = gamedf2[gamedf2["genre"].str.contains("venture")]
-    filtered_df = gamedf2[gamedf2["publisher"].str.contains("Rockstar")]
+    filtered_df = gamedf2[gamedf2["title"].str.contains("X...X")]
+    filtered_df = gamedf2[gamedf2["critic_score"].str.contains("N.N")]
 
     filtered_df.plot(
     kind='bar',
@@ -95,14 +98,17 @@ def three():
     plt.show()
 
 def four():
-    gamedf2.plot(
-      kind='bar',
-      x='genre',
-      y='critic_score',
-      color='blue',
-      alpha=0.3,
-      title='Genre popularity')
-plt.show()
+    filtered_df = gamedf2[gamedf2["genre"].str.contains("X...X")]
+    filtered_df = gamedf2[gamedf2["total_sales"].str.contains("N.NN")]
+
+    filtered_df.plot(
+    kind='bar',
+    x='genre',
+    y='total_sales',
+    color='blue',
+    alpha=0.3,
+    title='Genre popularity')
+    plt.show()
     
     
 print(gamedf2.dtypes)
