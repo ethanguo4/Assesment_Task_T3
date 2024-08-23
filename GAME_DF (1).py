@@ -2,15 +2,14 @@
 import pandas as pd
 import matplotlib.pyplot as plt     
 
+#dataframe stuff
+file_path = 'data/vgchartz-2024.csv'
 
 #----Global Variables----#
 quit = False
-gamedf = pd.read_csv("/Users/ethanslaptop/Documents/data/vgchartz-2024.csv")
-
-gamedf2 = pd.read_csv("/Users/ethanslaptop/Documents/data/vgchartz-2024.csv",
-                   header=None,
-                   names=['Title', 'Genre', 'Critic', 'Date', 'Total Sales'])
-
+gamedf = pd.read_csv("data/vgchartz-2024.csv")
+gamedf2 = gamedf
+gamedf2 = gamedf2['title', 'genre', 'critic', 'date', 'total_sales']
 def useCases():
     global quit
 
@@ -25,7 +24,7 @@ def useCases():
         print('5. Genre popularity')
         print("6. Exit the UI? :(")
         
-        choice = int(input("Please enter your choice, (1-5): "))
+        choice = int(input("Please enter your choice, (1-6): "))
 
         if choice == '1':
             originaldata()
@@ -46,7 +45,7 @@ def useCases():
 
 #----Define Functions Below----#
 def originaldata():
-        gamedf = pd.read_csv("/Users/ethanslaptop/Documents/data/vgchartz-2024.csv", on_bad_lines='warn', encoding='ISO-8859-1')
+        gamedf = pd.read_csv("data/vgchartz-2024.csv", on_bad_lines='warn', encoding='ISO-8859-1')
         with pd.option_context('display.max_rows', None,
                         'display.max_colums', None,
                         'display.width', None,
@@ -55,7 +54,7 @@ def originaldata():
             print( gamedf ) 
 
 def one():
-    a = gamedf2['Total Sales'].sum()
+    a = gamedf2['total_sum'].sum()
     print(f"Total amount of sales made by games is {a} people")
 
 def columns():
@@ -98,12 +97,3 @@ plt.show()
     
     
 print(gamedf2)
-
-def cleandata():
-    global dataset
-    dataset = dataset.drop_duplicates()
-    dataset = dataset.drop['img']
-    dataset = dataset.drop['na_sales']
-    dataset = dataset.drop['jp_sales']
-    dataset = dataset.drop['pal_sales']
-    dataset = dataset.drop['last_update']
