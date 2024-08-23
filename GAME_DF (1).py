@@ -2,9 +2,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt     
 
+#global quit
+quit = False
 
 #----Global Variables----#
-quit = False
 gamedf = pd.read_csv("/Users/ethanslaptop/Documents/data/vgchartz-2024.csv")
 
 gamedf2 = pd.read_csv("/Users/ethanslaptop/Documents/data/vgchartz-2024.csv",
@@ -25,7 +26,7 @@ def useCases():
         print('5. Genre popularity')
         print("6. Exit the UI? :(")
         
-        choice = int(input("Please enter your choice, (1-5): "))
+        choice = int(input("Please enter your choice, (1-6): "))
 
         if choice == '1':
             originaldata()
