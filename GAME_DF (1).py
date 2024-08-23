@@ -46,7 +46,7 @@ def useCases():
 
 #----Define Functions Below----#
 def originaldata():
-        gamedf = pd.read_csv('vgchartz-2024.csv', on_bad_lines='warn', encoding='ISO-8859-1')
+        gamedf = pd.read_csv("/Users/ethanslaptop/Documents/data/vgchartz-2024.csv", on_bad_lines='warn', encoding='ISO-8859-1')
         with pd.option_context('display.max_rows', None,
                         'display.max_colums', None,
                         'display.width', None,
