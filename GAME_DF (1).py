@@ -2,7 +2,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt     
 
-<<<<<<< HEAD
 #dataframe stuff
 file_path = 'data/vgchartz-2024.csv'
 
@@ -11,18 +10,16 @@ quit = False
 gamedf = pd.read_csv("data/vgchartz-2024.csv")
 gamedf2 = gamedf
 gamedf2 = gamedf2['title', 'genre', 'critic', 'date', 'total_sales']
-=======
 #global quit
 quit = False
 
 #----Global Variables----#
-gamedf = pd.read_csv("/Users/ethanslaptop/Documents/data/vgchartz-2024.csv")
+gamedf = pd.read_csv("data/vgchartz-2024.csv")
 
-gamedf2 = pd.read_csv("/Users/ethanslaptop/Documents/data/vgchartz-2024.csv",
+gamedf2 = pd.read_csv("data/vgchartz-2024.csv",
                    header=None,
                    names=['Title', 'Genre', 'Critic', 'Date', 'Total Sales'])
 
->>>>>>> 8b09a6f585fe5cc93ae67d0273fe3aaf62fb2ee5
 def useCases():
     global quit
 
